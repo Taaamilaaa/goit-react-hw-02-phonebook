@@ -1,43 +1,41 @@
 import React from "react";
 import "./App.css";
 import { Form } from "../components/Form/Form";
-import { Contacts } from "../components/Contacts/Contacts";
+import { ContactList } from "../components/ContactList/ContactList";
 import { v4 as uuid } from "uuid";
+import {Filter} from '../components/Filter/Filter'
 
 class App extends React.Component {
+  nameId = uuid();
+  nameInputId = uuid();
+  numberInputId = uuid();
   contactId = uuid();
-  state = {
-  contacts: [],
-  };
-  formSubmitHandler = (data) => {
-    if (data) {
-   const { name, number } = data;
-      console.log(name);
-      console.log(number);
-      const contact = {
-        id: this.contactId,
-        name: name,
-        number: number,
-      }
-      return this.addNewContact(contact)
-    }
-  };
-  addNewContact = (data) => {
-    
-this.setState(prevState => {
-      return {
-        contacts: [...prevState.contacts, data],
-      };
-    });
-}
-  render = () => {
 
-   return (
+  state = {
+    contacts: [],
+  };
+  formSubmitHandle = (data) => {
+    const contact = {
+      id: uuid(),
+      name: data.name,
+      number: data.number,
+    };
+    this.setState((prevState) => {
+      return { contacts: [...prevState.contacts, contact] };
+    });
+  };
+  filter = () => {
+
+  }
+  render = () => {
+    return (
       <div className="phonebook">
         <h2>Phonebook</h2>
-       <Form onSubmit={this.formSubmitHandler} />
-        <Contacts contacts = {this.formSubmitHandler()}/>      
-      
+        <Form onSubmit={this.formSubmitHandle} />
+         <h2>Contacts</h2>
+        <ContactList contacts={this.state.contacts} />
+        <Filter onChange={ this.filter}/>
+
       </div>
     );
   };
