@@ -1,6 +1,6 @@
 import React from "react";
 import { v4 as uuid } from "uuid";
-
+import styles from './form.module.css'
 
 export class Form extends React.Component {
   nameId = uuid();
@@ -31,9 +31,10 @@ handleChange = (e) => {
      
   render() {
     return (
-       <form onSubmit = {this.handleSubmit}>
-          <label htmlFor={this.nameInputId}>Name</label>
-          <input
+       <form className = {styles.form} onSubmit = {this.handleSubmit}>
+          <label className = {styles.label} htmlFor={this.nameInputId}>Name</label>
+        <input
+          className = {styles.input}
             type="text"
             name="name"
             value={this.state.name}
@@ -43,8 +44,9 @@ handleChange = (e) => {
             required
             onChange={this.handleChange}
           />
-          <label htmlFor={this.numberInputId}> Number</label>
-          <input
+          <label className = {styles.label} htmlFor={this.numberInputId}> Number</label>
+        <input
+          className = {styles.input}
             type="tel"
             name="number"
             value={this.state.number}
@@ -54,7 +56,7 @@ handleChange = (e) => {
             required
             onChange={this.handleChange}
           />
-          <button type="submit">Add contact</button>
+          <button className = {styles.submitBtn} type="submit">Add contact</button>
         </form>
     );
   }

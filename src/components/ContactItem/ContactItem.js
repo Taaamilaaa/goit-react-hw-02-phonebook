@@ -1,10 +1,15 @@
-export function ContactItem({ contacts }) {
-return (contacts.map((contact) => {
+import React from "react";
+import styles from "./contactItem.module.css";
+
+export function ContactItem({ contacts, clickOnBtn }) {
+  return contacts.map((contact) => {
     const { id, name, number } = contact;
     return (
-      <li key={id}>
-        <span>{name}</span>: <span>{number}</span>
+      <li className={styles.contactItem} key={id}>
+        <span className={styles.name}>{name}:</span>{" "}
+        <span className={styles.number}>{number}</span>{" "}
+        <button className={styles.btn} onClick={clickOnBtn}>❌</button>
       </li>
     );
-  }));
+  });
 }
