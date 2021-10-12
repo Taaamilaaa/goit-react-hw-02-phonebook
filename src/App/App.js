@@ -20,7 +20,7 @@ class App extends React.Component {
     ],
     
   };
-  formSubmitHandle = (data) => {
+  formSubmitHandle = (data) => {  
     const contact = {
       id: uuid(),
       name: data.name,
@@ -31,7 +31,6 @@ class App extends React.Component {
     });
   };
   contactsFilter = (data) => {
-    console.log(data);
      const filteredContacts = this.state.contacts.filter(
       (contact) => contact.name.toUpperCase().includes(data));
     this.setState({ contacts: [...filteredContacts] })

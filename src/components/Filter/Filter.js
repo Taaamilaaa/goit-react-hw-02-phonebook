@@ -2,20 +2,18 @@ import React from "react";
 import styles from './filter.module.css'
 export class Filter extends React.Component {
   state = {   
-    filter: "", 
+    filter: "",  
   };
-  handleSearch = (e) => {    
-    const filteredValue = e.currentTarget.value.toUpperCase();
-    
-    this.setState({ filter: { filteredValue } });
-    this.props.onChange(this.state.filter);
+  handleSearch = (e) => {
+    const filterValue = e.target.value.toUpperCase();  
+    this.props.onChange(filterValue);
   };
  
   render() {
     return (
       <>
         <label className = {styles.label}>Find contacts by name</label>
-        <input className={styles.input} onChange={this.handleSearch} />      
+        <input className={styles.input} value={this.state.filter} onChange={this.handleSearch} />
       </>
     );
   }
