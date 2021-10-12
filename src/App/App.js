@@ -20,15 +20,21 @@ class App extends React.Component {
     ],
     
   };
-  formSubmitHandle = (data) => {  
-    const contact = {
+  formSubmitHandle = (data) => {
+    const { name, number } = data;
+    const newContact = {
       id: uuid(),
-      name: data.name,
-      number: data.number,
+      name: name,
+      number: number,
     };
-    this.setState((prevState) => {
-      return { contacts: [...prevState.contacts, contact] };
-    });
+const renderedNames = this.state.contacts.find(contact => contact.name === newContact.name);
+if (renderedNames) {
+      alert(`${newContact.name} is already on contacts`);
+      return;
+    }
+    this.setState(({ contacts }) => ({
+      contacts: [newContact, ...contacts],
+    }));
   };
   contactsFilter = (data) => {
      const filteredContacts = this.state.contacts.filter(

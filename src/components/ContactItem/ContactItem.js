@@ -6,7 +6,6 @@ import PropTypes from 'prop-types'; // ES6
 export function ContactItem({ contacts, clickOnBtn }) {
   
   return contacts.map((contact) => {
-    console.log(typeof(clickOnBtn));
     const { id, name, number } = contact;
     return (
       <li className={styles.contactItem} key={id}>
