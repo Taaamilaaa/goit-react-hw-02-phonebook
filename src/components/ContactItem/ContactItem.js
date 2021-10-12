@@ -1,8 +1,12 @@
 import React from "react";
 import styles from "./contactItem.module.css";
+import PropTypes from 'prop-types'; // ES6
+
 
 export function ContactItem({ contacts, clickOnBtn }) {
+  
   return contacts.map((contact) => {
+    console.log(typeof(clickOnBtn));
     const { id, name, number } = contact;
     return (
       <li className={styles.contactItem} key={id}>
@@ -12,4 +16,8 @@ export function ContactItem({ contacts, clickOnBtn }) {
       </li>
     );
   });
+}
+ContactItem.propType = {
+contacts: PropTypes.obj,
+clickOnBtn: PropTypes.func,
 }

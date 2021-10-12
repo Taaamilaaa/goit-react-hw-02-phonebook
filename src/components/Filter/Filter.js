@@ -1,11 +1,13 @@
 import React from "react";
-import styles from './filter.module.css'
+import styles from './filter.module.css';
+import PropTypes from "prop-types"; // ES6
+
 export class Filter extends React.Component {
   state = {   
     filter: "",  
   };
   handleSearch = (e) => {
-    const filterValue = e.target.value.toUpperCase();  
+    const filterValue = e.target.value.toUpperCase();
     this.props.onChange(filterValue);
   };
  
@@ -17,4 +19,7 @@ export class Filter extends React.Component {
       </>
     );
   }
+}
+Filter.propType = {
+onChange: PropTypes.func,
 }
