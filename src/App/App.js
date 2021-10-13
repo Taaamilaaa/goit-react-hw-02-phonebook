@@ -42,8 +42,10 @@ if (renderedNames) {
     this.setState({ contacts: [...filteredContacts] })
   }
   
-  onBtnDelClick = (e) => {
-    e.target.parentNode.remove()
+  onBtnDelClick = (id) => {
+   this.setState(prevState => ({
+      contacts: prevState.contacts.filter(contact => contact.id !== id),
+    }));
   }
 
   render = () => {

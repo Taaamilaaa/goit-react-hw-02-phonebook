@@ -8,10 +8,10 @@ export function ContactItem({ contacts, clickOnBtn }) {
   return contacts.map((contact) => {
     const { id, name, number } = contact;
     return (
-      <li className={styles.contactItem} key={id}>
+      <li className={styles.contactItem} >
         <span id = 'name' className={styles.name}>{name}:</span>
         <span className={styles.number}>{number}</span>
-        <button className={styles.btn} onClick={clickOnBtn}>❌</button>
+        <button  className={styles.btn} onClick={() => clickOnBtn(id)}>❌</button>
       </li>
     );
   });

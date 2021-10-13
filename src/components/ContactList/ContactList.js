@@ -6,7 +6,7 @@ export function ContactList({ contacts, clickOnBtn }) {
   return (
     <>
       <ul className={styles.list}>
-        <ContactItem contacts={contacts} clickOnBtn={clickOnBtn} />
+        <ContactItem contacts={contacts} clickOnBtn={clickOnBtn} key={contacts.id} />
       </ul>
     </>
   );
