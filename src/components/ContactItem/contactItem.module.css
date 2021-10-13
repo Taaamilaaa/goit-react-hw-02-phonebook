@@ -24,8 +24,6 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  justify-content: center;
-  text-align: center;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-style: normal;
   font-weight: bold;
@@ -35,6 +33,7 @@
   background-color: rgb(245, 236, 115);
   color: #fff;
   border: none;
+  cursor: pointer;
 }
 .btn:hover {
   background-color: rgba(250, 6, 6, 0.411);

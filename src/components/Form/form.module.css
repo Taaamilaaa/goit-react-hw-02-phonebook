@@ -53,7 +53,7 @@
   border: none;
   line-height: 15px;
   color: rgba(51, 28, 25, 0.513);
-
+  cursor: pointer;
   border-radius: 4px;
 
   margin-left: auto;
